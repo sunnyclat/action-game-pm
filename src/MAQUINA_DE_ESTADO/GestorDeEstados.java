@@ -5,7 +5,7 @@
  */
 package MAQUINA_DE_ESTADO;
 
-import principal.GestorEstadoJuego;
+import principal.EstadoJuego;
 import INVENTARIO.EstadoInventario;
 import java.awt.Graphics;
 import GRAFICOS.LectorCanvas;
@@ -66,7 +66,7 @@ private void inicEstados(final LectorCanvas sd){
     estados=new InterfazGestionadorEstados[5];
    
     //implementan la clase interfaz
-    estados[0]= new GestorEstadoJuego();    //juego en si
+    estados[0]= new EstadoJuego();    //juego en si
     estados[1]= new EstadoInventario(sd);          //inventario
     estados[2]= new EstadoMenuPausa();
     estados[3]=new EstadoMenu();

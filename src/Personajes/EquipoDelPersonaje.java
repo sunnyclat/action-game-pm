@@ -7,7 +7,7 @@ package Personajes;
 
 import ITEMSYARMAS.Armas;
 import ITEMSYARMAS.SinArmas;
-import ITEMSYARMAS.SinArmas2;
+
 
 /**
  *
@@ -21,6 +21,7 @@ public class EquipoDelPersonaje {
     private String armadura;
     private Armas SinArmas;
    
+
   
     int municion;
     String cinturon;
@@ -37,6 +38,12 @@ public class EquipoDelPersonaje {
 
   
   
+    }
+    
+    
+    public EquipoDelPersonaje(){
+        
+        
     }
     
    

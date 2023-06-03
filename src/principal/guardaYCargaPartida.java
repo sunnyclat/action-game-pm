@@ -22,6 +22,7 @@ public class guardaYCargaPartida {
    public static String ruta=Constantes.RUTA_ARCHIVO_GUARDADO;
     
    File directory= new File(ruta);
+   
   public static File actualFile= new File(ruta,"saveFile.txt");
    
    public static int  vidaJugador;

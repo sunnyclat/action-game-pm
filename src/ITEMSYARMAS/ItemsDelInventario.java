@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import SPRITES.HojaSprites;
 import principal.Constantes;
 import GESTOR_MAPA.ItemsMapaTiled;
+import principal.ObjetosEstaticos;
 
 /**
  *
@@ -19,14 +20,31 @@ public class ItemsDelInventario {
 
 
     public final ArrayList<Items> items;
+      
 
+
+    
+    
+    
+  //  public final ArrayList<Consumibles> consum2;
+    
+   
+    
+    
+    
     public ItemsDelInventario() {
 
 
 
         items = new ArrayList<Items>();
-
-      
+       
+        
+       
+  
+    
+        
+        
+     //   consum2=new ArrayList<Consumibles>();
         
         
     }
@@ -97,6 +115,7 @@ public class ItemsDelInventario {
         for(Items itemAct: items){
          
             if(itemAct.getId()== item.getId()){
+               
                 itemAct.incremCant(cant);
                 increm=true;
                 break;
@@ -110,6 +129,15 @@ public class ItemsDelInventario {
         return increm;
         
     }
+    
+    
+    
+    
+        
+
+    
+    
+    
     
     
     public boolean itemExiste(final Items item){
@@ -142,6 +170,8 @@ public class ItemsDelInventario {
        for ( Items i : items ){
         
            if(i instanceof Consumibles){
+             
+               
                consum.add(i);
            }
            
@@ -157,6 +187,16 @@ public class ItemsDelInventario {
        
        
     }
+    
+   
+ 
+    public void setConsumible(int cantidad){
+        
+        
+        
+        
+    }
+    
     
     
     
@@ -182,6 +222,9 @@ public class ItemsDelInventario {
     public Items obtieneIdItm(final int id){
         
         for ( Items i : items){
+         
+            
+            
             if(i.getId() == id){
                 return i;
             }
@@ -189,6 +232,19 @@ public class ItemsDelInventario {
   
         return null;
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     

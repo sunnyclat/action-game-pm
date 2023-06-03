@@ -9,18 +9,21 @@ import SPRITES.Sprite;
 
 /**
  *
- * @author samuel ludueña 2021
+ * @author SAMU
  */
-public class Queso extends Consumibles{
-    
-    public Queso(String nombre, Sprite sprite, int id, String descripcion, int cantidad) {
-        super(nombre, sprite, id, descripcion, cantidad);
-    }
-    
+public class Queso extends Consumibles {
 
-        public Queso(int id, String nombre, String descripcion, int cantidad, int generaVida) {
+    public Queso(String nombre, Sprite sprite, int id, String descripcion, int cantidad, int generaVida) {
+        super(nombre, sprite, id, descripcion, cantidad,generaVida);
+    }
+
+  
+  public Queso(int id, String nombre, String descripcion, int cantidad, int generaVida) {
         super(id, nombre, descripcion, cantidad,generaVida);
     }
- 
+
+
+    
+
     
 }

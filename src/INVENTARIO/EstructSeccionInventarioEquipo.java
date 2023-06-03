@@ -23,7 +23,7 @@ import HERRAMIENTAS.MedidorString;
 import ITEMSYARMAS.Espada;
 import ITEMSYARMAS.Pistola;
 import ITEMSYARMAS.SinArmas;
-import ITEMSYARMAS.SinArmas2;
+
 
 /**
  *
@@ -32,7 +32,10 @@ import ITEMSYARMAS.SinArmas2;
 public class EstructSeccionInventarioEquipo extends SeccionesInventario {
 
     
-    EstructSeccionInventarioPrinc em= new EstructSeccionInventarioPrinc();
+    DiseñoInventarioPrinc em= new DiseñoInventarioPrinc();
+    
+    //los paneles son las secciones items, equipo y atributos del menu equipo
+    
     
     
     final Rectangle panelItems= new Rectangle(em.FONDO.x + 8,
@@ -67,13 +70,14 @@ public class EstructSeccionInventarioEquipo extends SeccionesInventario {
       
       
       
-    public EstructSeccionInventarioEquipo(String nombreSecc, Rectangle etiquetMenu,EstructSeccionInventarioPrinc em) {
+    public EstructSeccionInventarioEquipo(String nombreSecc, Rectangle etiquetMenu,DiseñoInventarioPrinc em) {
         super(nombreSecc, etiquetMenu,em);
     }
 
     @Override
     public void actualizar() {
-         actualizaPosicMenu();
+       
+        actualizaPosicItemEnMenuEquip();
          actualizarSeleccionMouse();
          actualizaItemSeleccionado();
 
@@ -86,7 +90,7 @@ public class EstructSeccionInventarioEquipo extends SeccionesInventario {
        
        
        
-       if(posicionMouse.intersects(EscaladorDeImagen.escalaRectanguloArriba (panelItems)   )    ){
+       if(posicionMouse.intersects(EscaladorDeImagen.escalaRectanguloArriba (panelItems)   )    ){ //items del menu equipo
           
            
            if(ObjetosEstaticos.inventario.obtieneArmas().isEmpty()){
@@ -98,11 +102,17 @@ public class EstructSeccionInventarioEquipo extends SeccionesInventario {
                
                
                if(GestorPrincipal.sd.getRaton().getClick() &&
-                       posicionMouse.intersects(EscaladorDeImagen.escalaRectanguloArriba (i.getPosicMenu()) )){
+                       posicionMouse.intersects(EscaladorDeImagen.escalaRectanguloArriba (i.getPosicEnMenu()) )){
                    
-                   ItemSeleccionado= i;
+                   ItemSeleccionado= i;  //selecciono al item.
                    
-                   
+           
+                 
+                 
+                 
+                 
+                 
+                 
                }
                
                
@@ -121,14 +131,14 @@ public class EstructSeccionInventarioEquipo extends SeccionesInventario {
            
            
            
-       }else if(posicionMouse.intersects(EscaladorDeImagen.escalaRectanguloArriba (panelEquipo)   )    ){
+       }else if(posicionMouse.intersects(EscaladorDeImagen.escalaRectanguloArriba (panelEquipo)   )    ){ //equipo (objeto equipado) del menu equipo
            
            if(ItemSeleccionado != null && ItemSeleccionado instanceof Armas
                    && GestorPrincipal.sd.getRaton().getClick() 
                    && posicionMouse.intersects(EscaladorDeImagen.escalaRectanguloArriba(contieneArma))){
                
                
-                  //           ObjetosEstaticos.persona.getEquipoPersonaje().setSinArmas((Armas)ItemSeleccionado);
+                             ObjetosEstaticos.persona.getEquipoPersonaje().setSinArmas((Armas)ItemSeleccionado);
                ObjetosEstaticos.persona.getEquipoPersonaje().setEspada((Armas)ItemSeleccionado);
                ObjetosEstaticos.persona.getEquipoPersonaje().setPistola((Armas)ItemSeleccionado);
                
@@ -154,20 +164,24 @@ public class EstructSeccionInventarioEquipo extends SeccionesInventario {
        
     }
    
-      public void eliminarItemSeleccion(){
+   
+   
+   /*
+   
+      public void eliminarItemSeleccionn(){
         ItemSeleccionado= null;
     }
    
+     */ 
       
       
       
       
-      
-      
+      /*
    public Items getItemseleccion(){
        return ItemSeleccionado;
    }
-   
+   */
    
    private void actualizaItemSeleccionado(){
        
@@ -182,9 +196,9 @@ public class EstructSeccionInventarioEquipo extends SeccionesInventario {
            
            
            
-           Point posicionRaton = EscaladorDeImagen.escalarPuntoAbajo(GestorPrincipal.sd.getRaton().getPosicion());
+           Point posicionRaton = EscaladorDeImagen.escalarPuntoAbajo(GestorPrincipal.sd.getRaton().getPosicion());  //traemos nuestra posicion del cursor
            
-           ItemSeleccionado.setPosicMouse(
+           ItemSeleccionado.setPosicMouse(                                                                    //traemos la posicion del mouse al item seleccionado asi se dibuja
            new Rectangle(posicionRaton.x,posicionRaton.y, Constantes.LADO_SPRITE,Constantes.LADO_SPRITE));
            
        }
@@ -200,7 +214,7 @@ public class EstructSeccionInventarioEquipo extends SeccionesInventario {
    
    
     
-    private void actualizaPosicMenu(){
+    private void actualizaPosicItemEnMenuEquip(){  //posicion del item dentro del menu equipo
    
         if(ObjetosEstaticos.inventario.obtieneArmas().isEmpty()){
             return;
@@ -268,14 +282,14 @@ dibujaPaneles(g);
     }
     
     
-    private void dibujaPaneles(final Graphics g){
+    private void dibujaPaneles(final Graphics g){  //trae metodos dibuja panel items y panel arma equipada
         
           
   dibujaPanelItems(g, panelItems,tituloRectPanelItems,"ITEMS");
     
   dibujaPanelEquipo(g,panelEquipo,tituloRectPanelEquipo,"EQUIPO");
     
-  dibujaPanelAtributos(g, panelAtributos,tituloRectPanelAtributos,"ATRIBUTOS");
+ // dibujaPanelAtributos(g, panelAtributos,tituloRectPanelAtributos,"ATRIBUTOS");
         
         
         
@@ -283,7 +297,7 @@ dibujaPaneles(g);
     
     
     
-    private void dibujaPanelItems(final Graphics g, final Rectangle panel, final Rectangle tituloPanel, final String nombrePanel){
+    private void dibujaPanelItems(final Graphics g, final Rectangle panel, final Rectangle tituloPanel, final String nombrePanel){  //trae metodo dibujado arma equipada
         
         
        
@@ -296,7 +310,7 @@ dibujaPaneles(g);
         
     }
     
-    private void dibujaPanelEquipo(final Graphics g, final Rectangle panel, final Rectangle tituloPanel, final String nombrePanel){
+    private void dibujaPanelEquipo(final Graphics g, final Rectangle panel, final Rectangle tituloPanel, final String nombrePanel){  //dibuja el arma equipada
         
         
         
@@ -316,36 +330,6 @@ dibujaPaneles(g);
         
             
 
-            
-            
-           /* 
-            if( !(ObjetosEstaticos.persona.getEquipoPersonaje().getPistola() instanceof SinArmas)){
-            
-            Point coordImagen= new Point (contieneArma.x + contieneArma.width / 2 - Constantes.LADO_SPRITE / 2,
-           contieneArma.y );
-            
-          DibujadorRectangulosImagenes.dibujImagen(g, ObjetosEstaticos.persona.getEquipoPersonaje().getPistola().getSprite().getImagen(), coordImagen);
-            
-          
-            }
-            
-        
-        
-
-        
-          if(  !(ObjetosEstaticos.persona.getEquipoPersonaje().getEspada() instanceof SinArmas)  ){
-            
-            Point coordImagen= new Point (contieneArma.x + contieneArma.width / 2 - Constantes.LADO_SPRITE / 2,
-           contieneArma.y );
-            
-    
-            
-                    DibujadorRectangulosImagenes.dibujImagen(g, ObjetosEstaticos.persona.getEquipoPersonaje().getEspada().getSprite().getImagen(), coordImagen);
-            
-            
-        } 
-          
-          */
            
            
            
@@ -399,21 +383,9 @@ dibujaPaneles(g);
         
     }
     
-    private void dibujaPanelAtributos(final Graphics g, final Rectangle panel, final Rectangle tituloPanel, final String nombrePanel){
-        
-        
-        
-        dibujaPanel(g, panel,tituloPanel,nombrePanel);
-      
-        //dibujar atributos
-        
-        
-        
-        
-    }
+
     
-    
-    private void dibujaItemsEquip(final Graphics g,final Rectangle panelItems, final Rectangle tituloPanel ){
+    private void dibujaItemsEquip(final Graphics g,final Rectangle panelItems, final Rectangle tituloPanel ){ //aca dibuja los items del equipo
        
         if(ObjetosEstaticos.inventario.obtieneArmas().isEmpty()){
             return;
@@ -434,11 +406,11 @@ dibujaPaneles(g);
             
             Items itemActual= ObjetosEstaticos.inventario.obtieneIdItm(idActual);
             
-            DibujadorRectangulosImagenes.dibujImagen(g, itemActual.getSprite().getImagen(),itemActual.getPosicMenu().x,itemActual.getPosicMenu().y );
+            DibujadorRectangulosImagenes.dibujImagen(g, itemActual.getSprite().getImagen(),itemActual.getPosicEnMenu().x,itemActual.getPosicEnMenu().y );
             
             
             
-            g.setColor(Color.black);
+     
             
             DibujadorRectangulosImagenes.dibujarRectanguloRelleno(g, puntInic.x + i * (lado + 8) + lado - 12,
                  puntInic.y + 32 - 8,12,8);

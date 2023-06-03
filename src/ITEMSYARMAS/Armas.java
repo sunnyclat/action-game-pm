@@ -95,7 +95,7 @@ public abstract class  Armas extends Items {
         
         
     
-        public void atacar(final ArrayList <Enemigos> enemigos ){
+        public void atacarr(final ArrayList <Enemigos> enemigos ){
             
            if(actualizSigAtaque  > 0 ) { //el arma no esta preparada para atacar otra vez
                

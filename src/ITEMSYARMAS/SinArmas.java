@@ -19,6 +19,7 @@ public class SinArmas extends Armas {
 
     public SinArmas(int id, String nombre, String descripcion, int minimAtaque, int maximAtaque,
              boolean automatica, boolean penetrante, double ataquesPorSegundo,int cantidad) {
+      
         super(id, nombre, descripcion, minimAtaque, maximAtaque, automatica, penetrante, ataquesPorSegundo,Constantes.GOLPE_PUNO_SONIDO,cantidad);
     }
 
@@ -132,6 +133,8 @@ public class SinArmas extends Armas {
       
      
     }
+
+
     
 
 }

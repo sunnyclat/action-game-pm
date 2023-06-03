@@ -167,7 +167,7 @@ public boolean getClick2(){
 
 
 
-public void reiniarClick(){
+public void reiniciarClick(){
     if(click){
         
         click=false;

@@ -25,12 +25,17 @@ import SPRITES.HojaSprites;
 import SPRITES.Sprite;
 import HERRAMIENTAS.InformacionDebug;
 import HERRAMIENTAS.DibujadorRectangulosImagenes;
+import HERRAMIENTAS.EscaladorDeImagen;
 import ITEMSYARMAS.Consumibles;
 import ITEMSYARMAS.Espada;
 import ITEMSYARMAS.Items;
+import ITEMSYARMAS.ItemsDelInventario;
+import ITEMSYARMAS.ItemsDelPiso;
+import ITEMSYARMAS.Manzanas;
+
 import ITEMSYARMAS.Pistola;
 import ITEMSYARMAS.SinArmas;
-import ITEMSYARMAS.SinArmas2;
+
 
 import MAQUINA_DE_ESTADO.GestorDeEstados;
 import SONID.Audio;
@@ -61,7 +66,7 @@ public class Personaje {
 public Audio sonidoQuejaJugador;
     public Audio sonidoResurrecion;
     
-    
+
       private int animacionn;
 
     private int estadoss;
@@ -75,14 +80,23 @@ public Audio sonidoQuejaJugador;
     
         public final static int VIDA_MAX=100;
    
-    private int vidaMax=100;
-    
+    public int vidaMax=20;
+    public int cantidad=0;
     public int direccion;
 
     private double veloc = 1;  //avanzamos rapido en los pixeles dando el efecto de correr
 
     private  HojaSprites hs;
-
+    
+ //   boolean curado=true;
+    
+   // boolean herido=false;
+    
+    boolean objeto;
+    private int suma=0;
+    private int sumarVida=0;
+    private int vidaActual=0;
+private int aConsum=0;
     
     private HojaSprites revivir1;
      private HojaSprites revivir2;
@@ -91,6 +105,7 @@ public Audio sonidoQuejaJugador;
     private BufferedImage imagenActual;
 
        
+      boolean esArma=false;
        
     private BufferedImage revivirActual1;
     private BufferedImage revivirActual2;
@@ -121,23 +136,33 @@ public int pesoActual= 30;
 
   private  EquipoDelPersonaje EquipoPersonaje;
   
+  private InventarioPersonaje invPersona;
+  
+  public   ArrayList <Items> consumItm;
+  
+    
+  public   ArrayList <Consumibles> consum;
+  
   
   private ArrayList<Rectangle> alcanceAtaquePersonaje;
-  
+    public  ArrayList<Items> items;
   
   private  ArrayList<Rectangle>    alcanceActualPersonaje;
 
- // private  ArrayList<Items>  itemss;
-  
-    private Items itemss;
-  
-  
+int cont=0;
+    
+boolean objeto2=false;  
+
+
+
     public Personaje( ) {
            
       teclado= new Teclado();
       
         
-   
+  
+
+
       
         this.posX = ObjetosEstaticos.mt.getPuntoInicial().getX(); //con esto el personaje se ubicara en una posicion x e y en el mapa tiled
         this.posY = ObjetosEstaticos.mt.getPuntoInicial().getY();
@@ -182,6 +207,17 @@ this.sonidoQuejaJugador= new Audio (Constantes.SONIDO_QUEJA_PERSONAJE);
         EquipoPersonaje= new EquipoDelPersonaje((Armas)ItemsYArmasDelJuego.obtenItem(   7 ),(Armas)ItemsYArmasDelJuego.obtenItem(   5 ),(Armas)ItemsYArmasDelJuego.obtenItem(   6 ));
 
         
+        invPersona= new  InventarioPersonaje ((Consumibles)  ( ItemsYArmasDelJuego.obtenItem(0)), (Consumibles) (( ItemsYArmasDelJuego.obtenItem(2)))   );
+     
+     
+     
+     
+    //       items = new ArrayList<Items>();
+//consumItm=new ArrayList<Items>();
+
+consum=new ArrayList<Consumibles>();
+
+
          alcanceAtaquePersonaje= new ArrayList();
         
         
@@ -200,10 +236,11 @@ this.sonidoQuejaJugador= new Audio (Constantes.SONIDO_QUEJA_PERSONAJE);
           
         calculoAlcanceDelAtaque(); //llamamos al tipo de arma con su alcance
         
+
+  
         
         
-        
-        
+         EquipoPersonaje.getSinArmas().actualizar();
              EquipoPersonaje.getPistola().actualizar();
         EquipoPersonaje.getEspada().actualizar();
         
@@ -244,13 +281,27 @@ this.sonidoQuejaJugador= new Audio (Constantes.SONIDO_QUEJA_PERSONAJE);
       
       //actualizamos al arma
 
-                 //     EquipoPersonaje.getSinArmas().actualizar();
+                 //    
     }
     
     
     
      
     private void calculoAlcanceDelAtaque(){  //calculamos el alcance del arma
+        
+        
+        
+        
+                 
+      if( !(EquipoPersonaje.getSinArmas() instanceof SinArmas)  ){
+     
+          
+            alcanceAtaquePersonaje= EquipoPersonaje.getEspada().getAlcance(this);
+ 
+    }
+      
+        
+        
         
         
                  if( !(EquipoPersonaje.getPistola() instanceof Pistola)  ){
@@ -265,13 +316,7 @@ this.sonidoQuejaJugador= new Audio (Constantes.SONIDO_QUEJA_PERSONAJE);
     }
       
       
-            
-      if( !(EquipoPersonaje.getSinArmas() instanceof SinArmas)  ){
-     //  alcanceAtaquePersonaje= EquipoPersonaje.getSinArmas().getAlcance(this);
-       
-     //  return;
-    }
-      
+   
       
   
 
@@ -343,7 +388,7 @@ this.sonidoQuejaJugador= new Audio (Constantes.SONIDO_QUEJA_PERSONAJE);
  
  //DibujadorRectangulosImagenes.dibujString(g, "Resistencia: " + stamina, 20, 40); //dibuja la barra de stamina
  
- DibujadorRectangulosImagenes.dibujString(g, "Vida: " + vidaMax, 20, 130);
+ DibujadorRectangulosImagenes.dibujString(g, "Vida: " + vidaMax, 20, 160);
  
          
         
@@ -365,6 +410,12 @@ this.sonidoQuejaJugador= new Audio (Constantes.SONIDO_QUEJA_PERSONAJE);
         return EquipoPersonaje;
     }
     
+    
+    
+     
+    public InventarioPersonaje getInventarioPersonaje(){
+        return invPersona;
+    }
     
 
     private boolean FueraDelMapa(final int MovX, final int MovY) {
@@ -394,8 +445,8 @@ this.sonidoQuejaJugador= new Audio (Constantes.SONIDO_QUEJA_PERSONAJE);
 
     public void actualizar() {
 
+   //  cargaVidaPersonaje();
 
-      
 CalculoStaminaCansadoRecuparado();   //calcula la stamina
      
 VelocidadAnimacionesPersonaje();    //son las animaciones del personaje que se dibujan luego usando los estados
@@ -413,7 +464,7 @@ DibujadoPersonajeTipoDeArma(); //dibuja el tipo de arma del personaje
 
     ActualizaArmaQuePortaPersonaje(); //actualiza el sprite del arma que esta portando el personaje
 
-   
+ 
     
     }
     
@@ -479,7 +530,7 @@ if(animacionn < 30){
         
         if( (EquipoPersonaje.getSinArmas() instanceof  SinArmas) && !(EquipoPersonaje.getSinArmas() instanceof  Armas)){
         
-        
+
 
 
         }else{
@@ -540,40 +591,371 @@ if(animacionn < 30){
 
     }
     
+ 
+           
+           
+     public int cargadorManzana(){
+         
+         
+            aConsum= invPersona.getManzana().getGenVida();
+            
+            
+            return aConsum;
+          
+     }      
+           
     
-    
-    
-        public void cargaVidaPersonaje(int sumaVida){
-            
-            if(ObjetosEstaticos.itInv.itemExiste(itemss)){
-            
-            
-            
-            if(vidaMax<100){
-                
-                
-                    vidaMax= vidaMax + sumaVida;
-                
-            }
-            
-            
         
-            }  
-    
-            
+         
+          
+
        
+          
+          
+          
+    
+    
+    public int cargadorPocion(){
+    
+ 
+        
+
+        
+
+       
+        aConsum= invPersona.getPocion().getGenVida();
+       
+       
+       return aConsum;
+        
+    }
+    
+    
+        public  void cargaVidaPersonaje(int vida){
+        
+  
+             
+  
+
+            
+                  
+
+                   
+                 
+                     
+            
+             vidaMax=vidaMax+vida; 
+    
+     
+     
+
+        }
+
+             
+             
+             
+             
+      
+             
+
+   
+             
+            
+    
+                      
+         
+     
+         
+         
+         
+
+                 
+                 
+                 
+                 
+                 
+         
+                 
+                
+        
+
+   
+
+        
+     
+         
+
+     
+    
+     
+ 
+
+              
+          
+              
+
+          
+          
+          
+    
+          
+  
+
+
+
+              
+        
+        
+   
+        
+        
+     
+         
+
+     
+    
+     
+ 
+
+         
+           
+          
+          
+          
+    
+   
+
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+                 
+         
+    /*
+                     
+      if(!objeto2){
+          
+          System.out.println("aqui2");
+      aConsum= invPersona.getConsumible().getGenVida(); 
+      
+      
+      
+      
+            
+                  sumarVida=   vidaMax + aConsum;
+                  
+                  
+            
+                  
+
+                   
+                 
+                     
+            
+             vidaMax=sumarVida; 
+    cont++;
+    
+    
+  
+      }
+   
+     */
+
+ 
+                       
+   
+    
+    
+    
+    
+    
+
+    
+    
+    
+          
+ 
+                 
+     
+                  
+   
+                
+              
+          
+    
+       
+   
+       
+       
+       
+       
+       
+       
+       
+       
+       
+
+                 
+                  /*  
+
+             if(curado==false
+                     ){
+                    
+                    
+                    vidaActual=vidaMax;   
+                    
+                    
+                    
+                    objeto= ObjetosEstaticos.inventario.obtieneConsumible().isEmpty();
+                            
+
+          if(    !(objeto)  && vidaMax<100  && vidaMax>0 ){
+            
+              
+        
+              
+      
+              
+              
+              
+           
+              
+                    System.out.println("ida2");   
+                    
+                    
+                
+                    
+                    
+                     aConsum= invPersona.getConsumible().getGenVida(); //10
+              
+                     System.out.println(vidaMax);
+                System.out.println(aConsum);
+                
+                
+                
+              
+           sumarVida=   vidaMax + aConsum;
+                 
            
            
          
-            
-            
-            
-        }
+      //  suma=   (sumarVida-vidaActual) + vidaMax  ;  //no borrar
+        
+        
+   
+           
+        
+
+       
+
+    
+        
+        vidaMax=sumarVida;
+        
+        
+              System.out.println(vidaMax);
+      
+              
+       
+      
+           
+           
+           
+                     
+         curado=true;
+       
+
+          }
+        
+                   
+                   
+              */ 
+  
+                  
+                  
+                  
+                  
+                  
+                  
+                     
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        
+
+
+    
+       
+    
+    
+      
+ 
+                    
+
+        
+   
+        
+        
         
     
     
     
-    public  void perdidaVidaPersonaje(float ataqueEnemigoRecibido){
+    public  void perdidaVidaPersonajee(float ataqueEnemigoRecibido){
        
         
 

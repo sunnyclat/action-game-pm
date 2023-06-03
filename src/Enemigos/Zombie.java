@@ -38,7 +38,7 @@ public class Zombie extends Enemigos {
 
    
    hojaZombie = new HojaSprites (Constantes.RUTA_ENEMIGOS + idEnemigo + ".png", Constantes.LADO_SPRITE, false );
-
+ //hojaJefe1 = new HojaSprites (Constantes.RUTA_JEFES + idEnemigo + ".png", Constantes.LADO_SPRITE, false );
    
         }
         
@@ -78,9 +78,10 @@ public class Zombie extends Enemigos {
     movimientos2();
 
          imagenActual = hojaZombie.getSprite(direccion,estados).getImagen();
+    //       imagenActual2 = hojaJefe1.getSprite(direccion,estados).getImagen();
         
 DibujadorRectangulosImagenes.dibujImagen(g, imagenActual, puntoX, puntoY);
-  
+ // DibujadorRectangulosImagenes.dibujImagen(g, imagenActual2, puntoX, puntoY);
 
  
 

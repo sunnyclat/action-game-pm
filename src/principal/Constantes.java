@@ -95,7 +95,7 @@ public static final int MARGEN_Y = ALTO_JUEGO / 2 - LADO_SPRITE / 2;
     
      public static String RUTA_ENEMIGOS = "/recurS/imagenes/HojaEnemigos/";
    
-     
+          public static String RUTA_JEFES = "/recurS/imagenes/HojaEnemigos/jefes/";
 
    
       
@@ -105,6 +105,8 @@ public static final int MARGEN_Y = ALTO_JUEGO / 2 - LADO_SPRITE / 2;
      //      public static String RUTA_MAPA_JSON="/recurS/imagenes/HojaTexturas/mapaSamu.json";
 //    public static String RUTA_MAPA_JSON="/recurS/imagenes/HojaTexturas/NUEVOO1.json";
         public static String RUTA_MAPA_JSON="/recurS/imagenes/HojaTexturas/BOSQUE.json";
+        
+         public static String RUTA_MAPA_JSON2="/recurS/imagenes/HojaTexturas/CUEVA.json";
    //  public static String RUTA_MAPA_JSON="/recurS/imagenes/HojaTexturas/apoca.json";
 
     

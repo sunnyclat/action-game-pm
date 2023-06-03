@@ -5,12 +5,24 @@
  */
 package Personajes;
 
+import ITEMSYARMAS.Consumibles;
+import ITEMSYARMAS.Items;
+import ITEMSYARMAS.Pocion;
+
+
 /**
  *
  * @author samuel ludueña 2021
  */
 public class InventarioPersonaje {
     
+
+    
+    
+    private Consumibles manzana;
+    private Consumibles pocion;
+    
+  private Items item;
     
     
     
@@ -19,11 +31,15 @@ public class InventarioPersonaje {
     
     
     
-    public InventarioPersonaje(){
+    
+    public InventarioPersonaje(Consumibles manzana, Consumibles pocion){
         
         
         
+        this.manzana=manzana;
         
+        
+this.pocion=pocion;
         
         
         
@@ -31,5 +47,51 @@ public class InventarioPersonaje {
     }
     
     
+    
+    
+    public InventarioPersonaje(){
+        
+        
+
+        
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+          public Consumibles getPocion(){
+        
+        
+        
+        
+        
+        
+       return pocion;
+        
+    }
+    
+ 
+    
+        public Consumibles getManzana(){
+        
+        
+        
+        
+        
+        
+       return manzana;
+        
+    }
+    
+        
+    
+    
+    
+    
+ 
     
 }

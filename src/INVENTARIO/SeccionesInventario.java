@@ -5,7 +5,7 @@
  */
 package INVENTARIO;
 
-import INVENTARIO.EstructSeccionInventarioPrinc;
+import INVENTARIO.DiseñoInventarioPrinc;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
@@ -27,7 +27,7 @@ public abstract class SeccionesInventario {
        protected final Rectangle barraPeso;
     
     
-    public SeccionesInventario(final String nombreSecc,final Rectangle etiquetMenu, final EstructSeccionInventarioPrinc em ){
+    public SeccionesInventario(final String nombreSecc,final Rectangle etiquetMenu, final DiseñoInventarioPrinc em ){
         
         
         this.nombreSecc=nombreSecc;

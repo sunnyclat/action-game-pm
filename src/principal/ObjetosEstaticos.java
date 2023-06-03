@@ -11,10 +11,13 @@ import Personajes.Personaje;
 import ITEMSYARMAS.ItemsDelInventario;
 import GESTOR_MAPA.GestorMapaTiled;
 import GRAFICOS.LectorCanvas;
+import ITEMSYARMAS.ItemsDelPiso;
 import MAQUINA_DE_ESTADO.GestorDeEstados;
 import MenuJuego.EstadoMenu;
 import MenuJuego.EstadoMenuPausa;
 import PERIFERICOS.Teclado;
+import Personajes.EquipoDelPersonaje;
+import Personajes.InventarioPersonaje;
 import SONID.Audio;
 
 /**
@@ -45,6 +48,11 @@ public class ObjetosEstaticos {
     public static EstadoMenu em= new EstadoMenu();
     
     public static ItemsDelInventario itInv= new ItemsDelInventario();
-
+   
+    public static ItemsDelPiso itemP=new ItemsDelPiso();
+    
+    public static InventarioPersonaje invPersona= new InventarioPersonaje();
+    
+    public static EquipoDelPersonaje eqpers= new EquipoDelPersonaje();
     
 }

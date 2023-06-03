@@ -78,11 +78,11 @@ actualiza();
    
 //g.setColor(Color.(0x174254));
 
-Color color=new Color(0x0b445c);
+//Color color=new Color(0x0b445c);
 
 //g.setColor(color);
 
-DibujadorRectangulosImagenes.dibujarRectanguloRelleno(g, 0, 0, Constantes.ANCHO_FULL_SCREEN,Constantes.ALTO_FULL_SCREEN, color);
+DibujadorRectangulosImagenes.dibujarRectanguloRelleno(g, 0, 0, Constantes.ANCHO_FULL_SCREEN,Constantes.ALTO_FULL_SCREEN, Color.black);
     
 
 

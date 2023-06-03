@@ -3,22 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/a/Documents/NetBeansProjects/PROYECTOS/JUEGO%20DE%20ACCION/src/ITEMSYARMAS/Armas.java</file>
-            <file>file:/C:/Users/a/Documents/NetBeansProjects/PROYECTOS/JUEGO%20DE%20ACCION/src/ITEMSYARMAS/Manzana.java</file>
-            <file>file:/C:/Users/a/Documents/NetBeansProjects/PROYECTOS/JUEGO%20DE%20ACCION/src/Personajes/EquipoDelPersonaje.java</file>
-            <file>file:/C:/Users/a/Documents/NetBeansProjects/PROYECTOS/JUEGO%20DE%20ACCION/src/principal/GestorEstadoJuego.java</file>
-            <file>file:/C:/Users/a/Documents/NetBeansProjects/PROYECTOS/JUEGO%20DE%20ACCION/src/ITEMSYARMAS/ItemsDelPiso.java</file>
-            <file>file:/C:/Users/a/Documents/NetBeansProjects/PROYECTOS/JUEGO%20DE%20ACCION/src/principal/ObjetosEstaticos.java</file>
-            <file>file:/C:/Users/a/Documents/NetBeansProjects/PROYECTOS/JUEGO%20DE%20ACCION/src/Personajes/Personaje.java</file>
-            <file>file:/C:/Users/a/Documents/NetBeansProjects/PROYECTOS/JUEGO%20DE%20ACCION/src/GRAFICOS/LectorCanvas.java</file>
-            <file>file:/C:/Users/a/Documents/NetBeansProjects/PROYECTOS/JUEGO%20DE%20ACCION/src/ITEMSYARMAS/Consumibles.java</file>
-            <file>file:/C:/Users/a/Documents/NetBeansProjects/PROYECTOS/JUEGO%20DE%20ACCION/src/Enemigos/Enemigos.java</file>
-            <file>file:/C:/Users/a/Documents/NetBeansProjects/PROYECTOS/JUEGO%20DE%20ACCION/src/GESTOR_MAPA/GestorMapaTiled.java</file>
-            <file>file:/C:/Users/a/Documents/NetBeansProjects/PROYECTOS/JUEGO%20DE%20ACCION/src/ITEMSYARMAS/Items.java</file>
-            <file>file:/C:/Users/a/Documents/NetBeansProjects/PROYECTOS/JUEGO%20DE%20ACCION/src/ITEMSYARMAS/Pistola.java</file>
-            <file>file:/C:/Users/a/Documents/NetBeansProjects/PROYECTOS/JUEGO%20DE%20ACCION/src/Personajes/InventarioPersonaje.java</file>
-            <file>file:/C:/Users/a/Documents/NetBeansProjects/PROYECTOS/JUEGO%20DE%20ACCION/src/ITEMSYARMAS/ItemsDelInventario.java</file>
-            <file>file:/C:/Users/a/Documents/NetBeansProjects/PROYECTOS/JUEGO%20DE%20ACCION/src/ITEMSYARMAS/ItemsYArmasDelJuego.java</file>
+            <file>file:/D:/DOCUMENTOS/DOCUMENTOS%202021/PROYECTOS%20Y%20PRACTICAS/PROYECTOS/JAVA/JUEGO%20DE%20ACCION/src/principal/GestorPrincipal.java</file>
+            <file>file:/D:/DOCUMENTOS/DOCUMENTOS%202021/PROYECTOS%20Y%20PRACTICAS/PROYECTOS/JAVA/JUEGO%20DE%20ACCION/src/GESTOR_MAPA/GestorMapaTiled.java</file>
         </group>
     </open-files>
 </project-private>

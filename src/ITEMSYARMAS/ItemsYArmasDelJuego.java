@@ -22,22 +22,22 @@ public class ItemsYArmasDelJuego {
         switch (idItem) {
 
             case 0:
-                item = new Manzana(idItem, "Manzana roja", "",4,10);
+                item = new Manzanas(idItem, "Manzana roja", "",1,10);
                 break;
 
             case 1:
-                item = new Queso(idItem, "queso", "",5,10);
+                item = new Queso(idItem, "queso", "",1,20);
                 break;
 
             case 2:
-                item = new Consumibles(idItem, "pocion", "",7,20);
+                item = new Pocion(idItem, "pocion", "",1,30);
                 break;
 
             case 3:
-                item = new Consumibles(idItem, "jamon", "",8,8);
+                item = new Jamon(idItem, "jamon", "",1,40);
                 break;
             case 4:
-                item = new Consumibles(idItem, "bolsa dinero", "",9,10);
+                item = new Dinero(idItem, "bolsa dinero", "",1,0);
                 break;
 
             case 5:
@@ -49,12 +49,10 @@ public class ItemsYArmasDelJuego {
                 break;
             
             case 7:
-                item = new SinArmas(idItem, "desarmado", "", 0, 0,false,true,0,0);
+                item = new SinArmas(idItem, "desarmado", "", 1, 2,true,false,0.1,1);
                 break;
            
-             case 8:
-                item = new SinArmas2(idItem, "desarmado", "", 0, 0,false,true,0,0);
-                break;
+          
   
                 
          

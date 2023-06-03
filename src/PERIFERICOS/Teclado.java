@@ -9,7 +9,10 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.sound.sampled.Clip;
 import HERRAMIENTAS.CargadorRecursos;
+import ITEMSYARMAS.Armas;
+import ITEMSYARMAS.SinArmas;
 import principal.Constantes;
+import principal.ObjetosEstaticos;
 import principal.guardaYCargaPartida;
 
 /**
@@ -75,13 +78,13 @@ public class Teclado implements KeyListener {
                 break;
 
             case KeyEvent.VK_CONTROL:
+                
+                
+      
 
                 ataque = true;
-
-                if (ataque == true) {
-                    System.out.println("bang");
-                }
-
+        
+            
                 break;
 
             case KeyEvent.VK_ESCAPE:

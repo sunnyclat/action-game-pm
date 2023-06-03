@@ -29,8 +29,10 @@ import SPRITES.Sprite;
 import HERRAMIENTAS.CalculadoraDistancia;
 import HERRAMIENTAS.CargadorRecursos;
 import HERRAMIENTAS.DibujadorRectangulosImagenes;
+import ITEMSYARMAS.Armas;
 import ITEMSYARMAS.SinArmas;
 import Personajes.Personaje;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 
 public class GestorMapaTiled {
@@ -43,6 +45,8 @@ public class GestorMapaTiled {
          boolean istrue2;
     
     public Point puntoInicial;
+    
+                 public  Point posicSalida;
 
     private ArrayList<CapasSprites> capSprites;
     private ArrayList<CapasColisiones> capColision;
@@ -55,7 +59,14 @@ public class GestorMapaTiled {
    JSONObject globalJSON;
    
    JSONObject puntoInic;
+      JSONObject puntoSal;
    
+             public final int MARGEN_X = Constantes.ANCHO_JUEGO / 2 - Constantes.LADO_SPRITE / 2;
+    public final int MARGEN_Y = Constantes.ALTO_JUEGO / 2 - Constantes.LADO_SPRITE / 2;
+
+   
+
+   public Rectangle zonaSalida;
    
     
     private Sprite[] paletaSprites;
@@ -66,12 +77,20 @@ public class GestorMapaTiled {
      private ArrayList <Enemigos> enemigosMapa= new ArrayList<>();
       
 
-    public GestorMapaTiled(final String ruta) {
-        
-      //  teclado = new Teclado();
-        
+    public GestorMapaTiled( String ruta) {
+ 
+      
+      
+      
+      
 
         String RutaTiled = CargadorRecursos.leerTexto(ruta);
+        
+        
+        
+        
+        
+        
 
 //    ANCHO,ALTO
         globalJSON = getObjetoJSON(RutaTiled);
@@ -86,6 +105,14 @@ public class GestorMapaTiled {
 
         this.puntoInicial = new Point(getIntJson(puntoInic, "x"),
                 getIntJson(puntoInic, "y"));
+        
+        
+                this.posicSalida = new Point(getIntJson(puntoInic, "x"),
+                getIntJson(puntoInic, "y"));
+
+                
+                
+                
 
         //      System.out.println(this.puntoInicial.toString());
         //       System.out.println("ancho: " + anchoTiles + ", alto: " + altoTiles);
@@ -300,6 +327,8 @@ for(int i=0; i< coleccionItems.size(); i++){
           itemsMapa.add(unicoItem);
           
           
+          
+          
 }
 
 
@@ -351,19 +380,20 @@ for(int i=0; i< coleccionEnemigos.size(); i++){
 
 
     }
-              public  Point posicSalida;
 
-   public Rectangle zonaSalida;
-    public String sigMap;
-       
-          public final int MARGEN_X = Constantes.ANCHO_JUEGO / 2 - Constantes.LADO_SPRITE / 2;
-    public final int MARGEN_Y = Constantes.ALTO_JUEGO / 2 - Constantes.LADO_SPRITE / 2;
-
-  public void actualizaZonaSalida() {
+   
+  // public String sigMap;
        
 
+  
+    /*
+    public void  actualizaZonaSalida() {
        
 
+       
+      
+        zonaSalida.x=828;
+         zonaSalida.y=910;
        
 
         int puntoX = ((int) posicSalida.getX()) * Constantes.LADO_SPRITE - ObjetosEstaticos.persona.obtenIntPosicX() + MARGEN_X;
@@ -374,42 +404,50 @@ for(int i=0; i< coleccionEnemigos.size(); i++){
         zonaSalida=new Rectangle(puntoX,puntoY,Constantes.LADO_SPRITE,Constantes.LADO_SPRITE);
         
     } 
-
-
-
-
-    public Rectangle getZonaSalida(){
-        return zonaSalida;
-    }
-    
-    
-       public String getSigMap() {
-        return sigMap;
-    }
-
-public void actualizaZonasColis() {
-/*
-        if (!zonasColis.isEmpty()) {  //si el array zonasColis no esta vacio, lo vaciamos
-            zonasColis.clear();
-        }
-
-        for (int y = 0; y < this.alto; y++) {
-            for (int x = 0; x < this.ancho; x++) {
-
-                int puntoX = x * Constantes.LADO_SPRITE - ObjetosEstaticos.persona.obtenIntPosicX() + MARGEN_X;
-
-                int puntoY = y * Constantes.LADO_SPRITE - ObjetosEstaticos.persona.obtenIntPosicY() + MARGEN_Y;
-
-                if (colisiones[x + y * this.ancho]) {
-
-                    final Rectangle area = new Rectangle(puntoX, puntoY, Constantes.LADO_SPRITE, Constantes.LADO_SPRITE);
-
-                    zonasColis.add(area);
-                }
-
-            }
-        }
 */
+    
+    
+        public Rectangle  getZonaSalida() {
+       
+
+       
+
+
+infoSalida();
+      
+       int puntoX = ((int) posicSalida.getX())- ObjetosEstaticos.persona.obtenIntPosicX() + MARGEN_X;  
+
+        int puntoY = ((int) posicSalida.getY())- ObjetosEstaticos.persona.obtenIntPosicY() + MARGEN_Y;
+        
+        zonaSalida=new Rectangle(puntoX,puntoY,20,20);
+    
+    
+        
+        return zonaSalida;
+    
+        }
+
+
+
+    public Point getSalida(){
+        
+
+              
+     //   posicSalida.x=828;
+     //   posicSalida.y=910;
+       
+                posicSalida.x=800;
+        posicSalida.y=900;
+        
+        return posicSalida;
+    }
+        
+        
+    public void infoSalida(){
+        
+           posicSalida.x=837;
+        posicSalida.y=910;
+       
     }
 
 
@@ -452,6 +490,8 @@ public void actualizaZonasColis() {
     }
     
     public void actualizar(){
+        
+ //  actualizaZonaSalida();
             
         actualizarAreasColision();
           
@@ -510,7 +550,7 @@ public void actualizaZonasColis() {
          
          
          
-                 i.ataqueAlPersonajee(ObjetosEstaticos.persona);
+                 i.ataqueAlPersonaje(ObjetosEstaticos.persona);
      }
             
             
@@ -532,45 +572,7 @@ public void actualizaZonasColis() {
         
     }
     
-    
-    public boolean actualizarAtaquesDeEnemigos2(){
-        boolean istrue2=false;
-        
-         for(Enemigos j : enemigosMapa){
-             
-             
-             
-                       boolean ij=   ObjetosEstaticos.persona.getAlcancePersona().get(0).intersects(j.getAreaEnemigo3c());   
-             
-                       
-                       
-                       
-                       if(ij){
-                           
-                           j.actualizarr(enemigosMapa);  
-                       j.setSigNodo(dij.encuentraSigNodoParaEnemigo(j));
-                           istrue2=true;
-                           
-                           
-                       }
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-            //      return     istrue2;
-                       
-                       
-                       
-         }
-         
-         
-           return     istrue2;
-        
-    }
-    
+
 
     
     
@@ -581,6 +583,11 @@ public void actualizaZonasColis() {
       // istrue=false;
        
                 recc=new Rectangle();
+                
+                
+                
+                
+                
        
        if(!enemigosMapa.isEmpty()){
             
@@ -878,7 +885,7 @@ if(ObjetosEstaticos.persona.getAlcancePersona().get(0).intersects(i.getAreaEnemi
     
     
     private void actualizaPersonajeAtaques(){
-      /*
+      
         if(enemigosMapa.isEmpty() || ObjetosEstaticos.persona.getAlcanceAtaquePersonaje().isEmpty()   ||
                 ObjetosEstaticos.persona.getEquipoPersonaje().getPistola() instanceof SinArmas){
             return;
@@ -888,10 +895,25 @@ if(ObjetosEstaticos.persona.getAlcancePersona().get(0).intersects(i.getAreaEnemi
                 ObjetosEstaticos.persona.getEquipoPersonaje().getEspada() instanceof SinArmas){
             return;
         }
-        */
+        
+         
+             if(enemigosMapa.isEmpty() || ObjetosEstaticos.persona.getAlcanceAtaquePersonaje().isEmpty()   ||
+                (ObjetosEstaticos.persona.getEquipoPersonaje().getSinArmas() instanceof SinArmas)){
+            return;
+        }
+        
+         
+         
+         
         
         
         if (ObjetosEstaticos.teclado.ataque){
+            
+
+            
+            
+            
+            
             
           ArrayList<Enemigos> enemigosAlcanzados = new ArrayList<>();  
           
@@ -901,21 +923,35 @@ if(ObjetosEstaticos.persona.getAlcancePersona().get(0).intersects(i.getAreaEnemi
               
           for(Enemigos enemigo : enemigosMapa){
               
-              if(ObjetosEstaticos.persona.getAlcanceAtaquePersonaje().get(0).intersects(enemigo.getAreaEnemigo2())){
+              
+           
+              
+              
+              
+              if(ObjetosEstaticos.persona.getAlcanceAtaquePersonaje().get(0).intersects(enemigo.getAreaEnemigo2()) ){
                     
-                  System.out.println("te pegue un tiro");
+         
                   
                   
+              
+                  
+                
+                   
+                   
+                   
                     enemigosAlcanzados.add(enemigo); //agrega al o los enemigos alcanzados por el impacto //ALCANZA A LOS CERCANOS
                     
-                }
+                
+              
+              
+              
+              
            
           
           
           } 
              
-             
-             
+          }  
              
              
              
@@ -984,7 +1020,7 @@ if(ObjetosEstaticos.persona.getAlcancePersona().get(0).intersects(i.getAreaEnemi
             
             
             
-        ObjetosEstaticos.persona.getEquipoPersonaje().getPistola().atacar(enemigosAlcanzados);
+        ObjetosEstaticos.persona.getEquipoPersonaje().getPistola().atacarr(enemigosAlcanzados);
         
    
         

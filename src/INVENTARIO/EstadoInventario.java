@@ -5,7 +5,7 @@
  */
 package INVENTARIO;
 
-import INVENTARIO.Inventario;
+import INVENTARIO.EstructSeccionInventarioPrinc;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
@@ -23,7 +23,7 @@ public class EstadoInventario implements InterfazGestionadorEstados {
     
     private final LectorCanvas sd;
     
-    private final EstructSeccionInventarioPrinc em;
+    private final DiseñoInventarioPrinc em;
     
     
     private final SeccionesInventario [] secciones;
@@ -38,7 +38,7 @@ public class EstadoInventario implements InterfazGestionadorEstados {
         
         this.sd=sd;
         
-      em=new EstructSeccionInventarioPrinc();
+      em=new DiseñoInventarioPrinc();
         
         secciones= new SeccionesInventario[2];
         
@@ -49,7 +49,7 @@ public class EstadoInventario implements InterfazGestionadorEstados {
          
         
         
-        secciones[0]= new Inventario("Inventario",etiquetInv,em);
+        secciones[0]= new EstructSeccionInventarioPrinc("Inventario",etiquetInv,em);
         
         final Rectangle etiquetEquipo= new Rectangle(em.BANNER_LAT.x + em.MARGEN_HORIZ_ETIQUET,etiquetInv.y + etiquetInv.height 
                 + em.MARGEN_VERT_ETIQUET,em.ANCHO_ETIQUET,em.ALTO_ETIQUET);
@@ -78,7 +78,7 @@ public class EstadoInventario implements InterfazGestionadorEstados {
          if(sd.getRaton().getClick() 
                  && sd.getRaton().obtieneRectanguloPosicion().intersects(secciones[i].obtieneEtiqueMenuEscal() )  ){
             
-             
+             /*
              if(secciones[i] instanceof EstructSeccionInventarioEquipo){
               
                  EstructSeccionInventarioEquipo secc = (EstructSeccionInventarioEquipo) secciones[i];
@@ -93,6 +93,46 @@ public class EstadoInventario implements InterfazGestionadorEstados {
                  
                  
              }
+             
+             
+             
+             */
+             
+             
+             
+             /*
+             
+                 if(secciones[i] instanceof EstructSeccionInventarioPrinc){
+              
+                 EstructSeccionInventarioPrinc secc = (EstructSeccionInventarioPrinc) secciones[i];
+                 
+                 if(secc.ItemSeleccionado != null){
+                     
+                     secc.eliminarItemSeleccion();
+                     
+                     
+                 }
+                 
+                 
+                 
+             }
+             
+             
+             */
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
              
              
              

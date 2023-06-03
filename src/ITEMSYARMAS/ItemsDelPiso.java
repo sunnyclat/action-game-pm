@@ -22,7 +22,7 @@ public class ItemsDelPiso {
     
     
     private Point posic;
-    private Items[] items;
+    private static Items[] items;
     
     
     
@@ -42,6 +42,12 @@ public class ItemsDelPiso {
         
         
         
+        
+        
+    }
+    
+    
+    public ItemsDelPiso(){
         
         
     }
@@ -69,7 +75,7 @@ public class ItemsDelPiso {
     
     
     
-    public Items[] getItems(){
+    public static Items[] getItems(){
         return items;
     }
     

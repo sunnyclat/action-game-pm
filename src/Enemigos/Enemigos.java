@@ -76,8 +76,10 @@ public Audio sonidoAtaque;
           private ArrayList<Rectangle> alcanceEnemigo;
         
                 protected static HojaSprites hojaZombie;
+                  protected static HojaSprites hojaJefe1;
 
     protected BufferedImage imagenActual;
+     protected BufferedImage imagenActual2;
     
 Personaje persona;
 
@@ -148,7 +150,7 @@ alcanceAtaqueEnemigo=  new ArrayList();
     
     
     
-     public void ataqueAlPersonajee(final Personaje persona ){
+     public void ataqueAlPersonaje(final Personaje persona ){
        
            
            float ataqueActual = minAtaque;
@@ -162,7 +164,7 @@ alcanceAtaqueEnemigo=  new ArrayList();
                      sonidoAtaque.reproduceSonido();
           
                    
-                 persona.perdidaVidaPersonaje(ataqueActual);
+                 persona.perdidaVidaPersonajee(ataqueActual);
             
                }
            

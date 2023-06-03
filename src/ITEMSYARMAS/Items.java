@@ -28,7 +28,7 @@ public abstract class Items {
     private int cantMax;
     
     
-    protected Rectangle posicMenu;  //dibuja el item dentro del menu
+    protected Rectangle posicEnMenu;  //dibuja el item dentro del menu
     protected Rectangle posicMouse; //dibuja el item flotando al lado del cursor al hacerle click
 
     public Items(final int id, final String nombre, final String descripcion, final int cantidad) {
@@ -44,7 +44,7 @@ public abstract class Items {
         
         
         
-        posicMenu= new Rectangle(0,0,0,0);
+        posicEnMenu= new Rectangle(0,0,0,0);
         posicMouse= new Rectangle(0,0,0,0);
         
         
@@ -65,6 +65,8 @@ public abstract class Items {
     }
 
     public abstract Sprite getSprite();
+
+
 
 
     
@@ -93,20 +95,29 @@ public abstract class Items {
         
         boolean decremented=false;
         
+   
         
-        if(cant - decremento >= 0){
+        
+        //puedo tener como base 0 de la cantidad de items
+          if(cant - decremento <= decremento){
             cant -= decremento;
             
             decremented=true;
             
         }
         
+        
+        
+        
+        
+        
         return decremented;
         
         
         
     }
-    
+
+        
         
         public String getNombre(){
             return nombre;
@@ -123,8 +134,8 @@ public abstract class Items {
         
         
         
-        public Rectangle getPosicMenu(){
-            return posicMenu;
+        public Rectangle getPosicEnMenu(){
+            return posicEnMenu;
         }
         
         
@@ -134,8 +145,8 @@ public abstract class Items {
         
             
             
-            public void setPosicMenu(final Rectangle posicMenu){
-                this.posicMenu=posicMenu;
+            public void setPosicMenu(final Rectangle posicEnMenu){
+                this.posicEnMenu=posicEnMenu;
             }
             
             
@@ -144,9 +155,13 @@ public abstract class Items {
             }
             
             
+    public void setCant(final int cantidad){
+        
+        
+        this.cant= cantidad;
+    }
     
-    
-    public int getCant(){
+    public  int getCant(){
         
         return cant;
     }
