@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
@@ -8,3 +9,32 @@
         </group>
     </open-files>
 </project-private>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/a/Documents/NetBeansProjects/PROYECTOS/JUEGO%20DE%20ACCION/src/ITEMSYARMAS/Armas.java</file>
+            <file>file:/C:/Users/a/Documents/NetBeansProjects/PROYECTOS/JUEGO%20DE%20ACCION/src/ITEMSYARMAS/Espada.java</file>
+            <file>file:/C:/Users/a/Documents/NetBeansProjects/PROYECTOS/JUEGO%20DE%20ACCION/src/ITEMSYARMAS/SinArmas.java</file>
+            <file>file:/C:/Users/a/Documents/NetBeansProjects/PROYECTOS/JUEGO%20DE%20ACCION/src/INVENTARIO/EstructSeccionInventarioEquipo.java</file>
+            <file>file:/C:/Users/a/Documents/NetBeansProjects/PROYECTOS/JUEGO%20DE%20ACCION/src/principal/ObjetosEstaticos.java</file>
+            <file>file:/C:/Users/a/Documents/NetBeansProjects/PROYECTOS/JUEGO%20DE%20ACCION/src/ITEMSYARMAS/ItemsDelPiso.java</file>
+            <file>file:/C:/Users/a/Documents/NetBeansProjects/PROYECTOS/JUEGO%20DE%20ACCION/src/principal/EstadoJuego.java</file>
+            <file>file:/C:/Users/a/Documents/NetBeansProjects/PROYECTOS/JUEGO%20DE%20ACCION/src/Personajes/Personaje.java</file>
+            <file>file:/C:/Users/a/Documents/NetBeansProjects/PROYECTOS/JUEGO%20DE%20ACCION/src/INVENTARIO/EstructSeccionInventarioPrinc.java</file>
+            <file>file:/C:/Users/a/Documents/NetBeansProjects/PROYECTOS/JUEGO%20DE%20ACCION/src/INVENTARIO/EstadoInventario.java</file>
+            <file>file:/C:/Users/a/Documents/NetBeansProjects/PROYECTOS/JUEGO%20DE%20ACCION/src/ITEMSYARMAS/Consumibles.java</file>
+            <file>file:/C:/Users/a/Documents/NetBeansProjects/PROYECTOS/JUEGO%20DE%20ACCION/src/Enemigos/Enemigos.java</file>
+            <file>file:/C:/Users/a/Documents/NetBeansProjects/PROYECTOS/JUEGO%20DE%20ACCION/src/GESTOR_MAPA/GestorMapaTiled.java</file>
+            <file>file:/C:/Users/a/Documents/NetBeansProjects/PROYECTOS/JUEGO%20DE%20ACCION/src/ITEMSYARMAS/Items.java</file>
+            <file>file:/C:/Users/a/Documents/NetBeansProjects/PROYECTOS/JUEGO%20DE%20ACCION/src/ITEMSYARMAS/Pistola.java</file>
+            <file>file:/C:/Users/a/Documents/NetBeansProjects/PROYECTOS/JUEGO%20DE%20ACCION/src/Personajes/InventarioPersonaje.java</file>
+            <file>file:/C:/Users/a/Documents/NetBeansProjects/PROYECTOS/JUEGO%20DE%20ACCION/src/ITEMSYARMAS/ItemsDelInventario.java</file>
+            <file>file:/C:/Users/a/Documents/NetBeansProjects/PROYECTOS/JUEGO%20DE%20ACCION/src/ITEMSYARMAS/ItemsYArmasDelJuego.java</file>
+            <file>file:/C:/Users/a/Documents/NetBeansProjects/PROYECTOS/JUEGO%20DE%20ACCION/src/ITEMSYARMAS/SinArmas2.java</file>
+        </group>
+    </open-files>
+</project-private>
+>>>>>>> e8c878ba040690293b6b5e93546b483205c809c9
